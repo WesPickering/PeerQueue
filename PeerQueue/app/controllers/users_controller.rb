@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       redirect_to '/'
+      redirect_to '/queued_users'
     else
       redirect_to '/'
     end
