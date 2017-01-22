@@ -14,7 +14,8 @@ class UsersController < ApplicationController
   end
 
   def help
-    render html:"kill me"
+    QueuedUser.find_by_id(params[:foo_param]).update_attribute(:Status, "Being Helped by " + User.find_by_id(session[:user_id]).first_name)
+    redirect_to :back
   end
 
 

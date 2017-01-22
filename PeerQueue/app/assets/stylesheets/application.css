@@ -12,5 +12,5 @@
  *
  *= require_self
  */
-
- @import "queued_users.scss";
+*= require bootstrap
+*=require theme
