@@ -9,7 +9,6 @@
       <th>Time Added</th>
       <th>Question</th>
       <th>Status</th>
-      <th>Peerhelp</th>
       <th colspan=4></th>
     </tr>
   </thead>
@@ -21,8 +20,7 @@
         <td><%= queued_user.created_at %></td>
         <td><%= queued_user.Question %></td>
         <td><%= queued_user.Status %></td>
-        <!--<td><%= queued_user.PeerHelp %></td>-->
-        <td><%= link_to 'Help', help_queued_user_url %></td>
+        <td><%= button_to "please work", users_help_path(foo_param: queued_user), method: :post %><td>
         <td><%= link_to 'Show', queued_user %></td>
         <td><%= link_to 'Edit', edit_queued_user_path(queued_user) %></td>
 
