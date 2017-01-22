@@ -13,8 +13,17 @@ class SessionsController < ApplicationController
     end
   end
   def destroy
+    @queued_user = QueuedUser.find_by_dbID(session[:user_id])
+    if @queued_user
+      @queued_user.destroy
+      respond_to do |format|
+        format.html { redirect_to '/', notice: 'Queued user was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to '/'
+    end
     session[:user_id] = nil
-    redirect_to '/'
   end
   def delete
     redirect_to '/'
