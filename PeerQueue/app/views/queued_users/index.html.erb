@@ -205,7 +205,7 @@
         <td><%= (queued_user.created_at - 28800).strftime("%r") %></td>
         <td><%= queued_user.Question %></td>
         <td><%= queued_user.Status %></td>
-        <% if (queued_user.PeerHelp && current_user.student?) || !current_user.student?%>
+        <% if ((queued_user.PeerHelp && current_user.student?) || !current_user.student?) && (queued_user.dbID != session[:user_id])%>
         <td><%= button_to "Help", users_help_path(foo_param: queued_user), method: :post %></td>
         <% end %>
 
@@ -220,27 +220,10 @@
 </table>
 <br>
 
-<% if current_user && current_user.instructor? %>
-<body>
-<h1>I'm an instructor</h1>
-</body>
-<% end %>
-
-<% if current_user && current_user.ta? %>
-<body>
-<h3>I'm a TA</h3>
-</body>
-<% end %>
-
-<% if current_user && current_user.student? %>
-<body>
-<h3>I'm a student</h3>
-</body>
-<% end %>
 
 <%= link_to 'Logout', logout_path, method:'delete' %>
 
 
-<% if QueuedUser.find_by_dbID(session[:user_id]) == @current_user%>
+<% if (QueuedUser.find_by_dbID(session[:user_id]) == @current_user) && current_user.student?%>
 <%= link_to 'Add Self to Queue', new_queued_user_path %>
 <% end %>
