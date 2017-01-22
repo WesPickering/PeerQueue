@@ -213,10 +213,7 @@
         <% if queued_user.dbID == session[:user_id] %>
         <td><%= link_to 'edit', edit_queued_user_url(queued_user) %></td>
         <td><%= link_to 'Remove', queued_user, method: :delete, data: {confirm: "are you sure m8?"}%></td>
-        <%= link_to("Logout", logout_path) do %>
-        <%= queued_user => method: :delete %>
         <% end %>
-        <%end%>
       </tr>
     <% end %>
 
