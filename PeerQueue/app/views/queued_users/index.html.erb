@@ -63,7 +63,7 @@
   }
   a:active,
   a:hover {
-  	color: #bd5a35;
+  	color: white;
   	text-decoration:underline;
   }
 
@@ -83,7 +83,7 @@
   }
   table a:active,
   table a:hover {
-  	color: #bd5a35;
+  	color: #666;
   	text-decoration:underline;
   }
   table {
@@ -224,10 +224,10 @@
 
 
 
-<%= link_to 'Logout', logout_path, method: :delete, data: {confirm: "are you sure m8?"}%>
+<%= link_to 'Logout', logout_path, method: :delete, class: "btn btn-default",data: {confirm: "are you sure m8?"}%>
 
 
 
 <% if (QueuedUser.find_by_dbID(session[:user_id]) == @current_user) && current_user.student?%>
-<%= link_to 'Add Self to Queue', new_queued_user_path %>
+<%= link_to 'Add Self to Queue', new_queued_user_path, class: "btn btn-default"%>
 <% end %>
