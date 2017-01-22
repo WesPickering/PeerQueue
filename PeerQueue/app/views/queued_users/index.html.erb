@@ -12,7 +12,6 @@
       <th>Time Added</th>
       <th>Question</th>
       <th>Status</th>
-      <th>Peerhelp</th>
       <th colspan=4></th>
     </tr>
   </thead>
@@ -21,14 +20,15 @@
     <% @queued_users.each do |queued_user| %>
       <tr>
         <td><%= queued_user.Name %></td>
-        <td><%= queued_user.created_at %></td>
+        <td><%= queued_user.created_at.strftime("%r") %></td>
         <td><%= queued_user.Question %></td>
         <td><%= queued_user.Status %></td>
-        <!--<td><%= queued_user.PeerHelp %></td>-->
-        <td><%= link_to 'Help', help_queued_user_url %></td>
+        <td><%= button_to "Help", users_help_path(foo_param: queued_user), method: :post %><td>
         <td><%= link_to 'Show', queued_user %></td>
-        <td><%= link_to 'Edit', edit_queued_user_path(queued_user) %></td>
-
+        <td><%= queued_user.DbID %></td>
+        <% if queued_user.DbID == session[:user_id] %>
+        <td><%= link_to 'DESTROY', queued_user, method: :delete, data: {confirm: "are you sure m8?"}%></td>
+        <% end %>
       </tr>
     <% end %>
 
@@ -57,5 +57,5 @@
 <%= link_to 'Logout', logout_path, method:'delete' %>
 
 <% if current_user && current_user.student? %>
-<%= link_to 'New Queued User', new_queued_user_path %>
+<%= link_to 'Add Self to Queue', new_queued_user_path %>
 <% end %>
