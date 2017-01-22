@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170122040557) do
+ActiveRecord::Schema.define(version: 20170121231423) do
 
   create_table "queued_users", force: :cascade do |t|
     t.string   "Name"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20170122040557) do
     t.integer  "dbID"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    ORDER BY "created_at"
   end
 
   create_table "users", force: :cascade do |t|
