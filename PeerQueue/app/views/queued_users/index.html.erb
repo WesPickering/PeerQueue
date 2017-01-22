@@ -52,6 +52,6 @@
 
 <%= link_to 'Logout', logout_path, method:'delete' %>
 
-<% if QueuedUser.find_by_dbID(session[:user_id]) == @user %>
+<% if QueuedUser.find_by_dbID(session[:user_id])%>
 <%= link_to 'Add Self to Queue', new_queued_user_path %>
 <% end %>
