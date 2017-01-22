@@ -7,7 +7,9 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to '/queued_users'
     else
+      flash[:notice] = "Incorrect email and/or password."
       redirect_to '/'
+
     end
   end
   def destroy
