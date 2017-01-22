@@ -13,7 +13,7 @@
 
         <h2>Sign up</h2>
 
-        <%= form_for(User.new) do |f| %>
+        <%= form_for(User.new, url:login_path) do |f|%>
           <%= f.text_field :first_name, :placeholder => " First name" %>
           <%= f.text_field :last_name, :placeholder => " Last name" %>
           <%= f.email_field :email, :placeholder => " Email" %>
