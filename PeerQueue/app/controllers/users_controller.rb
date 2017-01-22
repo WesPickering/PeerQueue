@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     QueuedUser.find_by_id(params[:foo_param]).update_attribute(:Status, "Being Helped by " + User.find_by_id(session[:user_id]).first_name)
     QueuedUser.find_by_id(params[:foo_param]).update_attribute(:beingHelped, true)
     if QueuedUser.find_by_dbID(session[:user_id])
-      QueuedUser.find_by_dbID(params[:foo_param]).update_attribute(:beingHelped, true)
+      QueuedUser.find_by_dbID(params[:user_id]).update_attribute(:beingHelped, true)
       QueuedUser.find_by_dbID(session[:user_id]).update_attribute(:Status, "Helping " + QueuedUser.find_by_id(params[:foo_param]).Name)
     end
     redirect_to QueuedUser.find_by_id(params[:foo_param])
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     QueuedUser.find_by_id(params[:foo_param]).update_attribute(:Status, "In Queue")
     QueuedUser.find_by_id(params[:foo_param]).update_attribute(:beingHelped, false)
     if QueuedUser.find_by_dbID(session[:user_id])
-      QueuedUser.find_by_dbID(params[:foo_param]).update_attribute(:beingHelped, false)
+      QueuedUser.find_by_dbID(params[:user_id]).update_attribute(:beingHelped, false)
       QueuedUser.find_by_dbID(session[:user_id]).update_attribute(:Status, "In Queue")
     end
     redirect_to queued_users_path
