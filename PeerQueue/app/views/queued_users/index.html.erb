@@ -25,6 +25,16 @@
   }
   h1 {
     text-align: center;
+    top: 50%;
+    color: white;
+    padding-top: 0.75em;
+  }
+  .banner {
+    width:120%;
+    height: 100px;
+    margin:7px auto;
+    margin-top: 25px;
+    background-color: #4682B4;
   }
   body { line-height: 1; }
   ol, ul { list-style: none; }
@@ -171,7 +181,9 @@
 <link rel="stylesheet" href="app/assets/stylessheets/queued_users.css">
 </head>
 
-<h1>Queued Users</h1>
+<div class="banner">
+  <h1>Queued Users</h1>
+</div>
 
 <table cellspacing = '0' class="center">
   <thead>
@@ -192,7 +204,7 @@
         <td><%= queued_user.created_at.strftime("%r") %></td>
         <td><%= queued_user.Question %></td>
         <td><%= queued_user.Status %></td>
-        <td><%= button_to "Help", users_help_path(foo_param: queued_user), method: :post %><td>
+        <td><%= button_to "Help", users_help_path(foo_param: queued_user), method: :post %></td>
         <td><%= link_to 'Show', queued_user %></td>
         <% if queued_user.dbID == session[:user_id] || current_user.ta? || current_user.instructor?%>
         <td><%= link_to 'DESTROY', queued_user, method: :delete, data: {confirm: "are you sure m8?"}%></td>
