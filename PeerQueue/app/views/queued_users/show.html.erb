@@ -1,5 +1,14 @@
+<head>
+  <style type="text/css">
+p{
+  text-align: center;
+}
+.button{
+  text-align: center;
+}
+</style>
+</head>
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @queued_user.Name %>
@@ -19,5 +28,6 @@
   <strong>Peerhelp:</strong>
   <%= @queued_user.PeerHelp %>
 </p>
-
+<div class="button">
 <%= button_to 'Back', users_finishHelping_path(foo_param: @queued_user), class: "btn btn-default", method: :post %>
+</div>

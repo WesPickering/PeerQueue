@@ -1,3 +1,11 @@
+<style type="text/css">
+input.css_class
+{
+width: 30px;
+height: 30px;
+}
+</style>
+
 <%= form_for(queued_user) do |f| %>
   <% if queued_user.errors.any? %>
     <div id="error_explanation">
@@ -17,11 +25,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :PeerHelp, :style => "float:left"  %> <%= f.check_box :PeerHelp%>
+    <%= f.label :PeerHelp, :style => "float:left"  %> <%= f.check_box :PeerHelp, :class => "css_class" %>
   </div>
 
   <div class="actions">
     <%= f.submit "Add to Queue", class: "btn btn-default" %>
+    <%=link_to 'Back', queued_users_path, class: "btn btn-default"%>
   </div>
 
 <% end %>
