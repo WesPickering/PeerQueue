@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def help
-    QueuedUser.find_by_id(params[:foo_param]).update_attribute(:Status, "holy")
+    QueuedUser.find_by_id(params[:foo_param]).update_attribute(:Status, "Being Helped by " + User.find_by_id(session[:user_id]).first_name)
     redirect_to :back
   end
 

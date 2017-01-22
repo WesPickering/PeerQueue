@@ -25,6 +25,8 @@ class QueuedUsersController < ApplicationController
   # POST /queued_users.json
   def create
     @queued_user = QueuedUser.new(queued_user_params)
+    @queued_user.Name = User.find_by_id(session[:user_id]).first_name
+    @queued_user.DbID = session[:user_id]
 
     respond_to do |format|
       if @queued_user.save
@@ -70,7 +72,7 @@ class QueuedUsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def queued_user_params
-      params.require(:queued_user).permit(:Name, :Question, :Status, :PeerHelp)
+      params.require(:queued_user).permit(:Name, :Question, :Status, :PeerHelp, :DbID)
     end
 
 end
