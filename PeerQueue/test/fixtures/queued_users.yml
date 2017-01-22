@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Name: MyString
+  Question: MyString
+  Status: MyString
+  PeerHelp: false
+
+two:
+  Name: MyString
+  Question: MyString
+  Status: MyString
+  PeerHelp: false

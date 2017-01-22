@@ -7,11 +7,16 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to '/'
+      redirect_to '/login'
     else
       redirect_to '/signup'
     end
   end
+
+  def help
+    render html:"kill me"
+  end
+
 
   private
   def user_params
