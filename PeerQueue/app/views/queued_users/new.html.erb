@@ -15,7 +15,7 @@ h1 {
   color: white;
   padding-top: 0.75em;
 }
-.form {
+#wrapper {
   margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
@@ -26,8 +26,9 @@ h1 {
 <h1>New Queued User</h1>
 </div>
 
-<div class="form">
+<div id="wrapper" style="text-align:center">
+<div id="form" style="display: inline-block">
 <%= render 'form', queued_user: @queued_user %>
-</div>
-
 <%=link_to 'Back', queued_users_path, class: "btn btn-default"%>
+</div>
+</div>
