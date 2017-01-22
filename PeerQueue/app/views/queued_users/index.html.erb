@@ -238,7 +238,7 @@
 </body>
 <% end %>
 
-<%= link_to 'Logout', logout_path, method:'delete' %>
+<%= link_to 'Logout', logout_path, method:'delete', queued_user, method: :delete,%>
 
 
 <% if QueuedUser.find_by_dbID(session[:user_id]) == @current_user%>
