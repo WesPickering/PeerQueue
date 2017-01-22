@@ -28,6 +28,8 @@ class QueuedUsersController < ApplicationController
     @queued_user.Name = User.find_by_id(session[:user_id]).first_name
     @queued_user.Status = "In Queue"
     @queued_user.write_attribute(:dbID, session[:user_id])
+    @queued_user.write_attribute(:beingHelped, false)
+
 
     respond_to do |format|
       if @queued_user.save

@@ -20,5 +20,4 @@
   <%= @queued_user.PeerHelp %>
 </p>
 
-<%= link_to 'Edit', edit_queued_user_path(@queued_user) %> |
-<%= link_to 'Back', queued_users_path %>
+<%= button_to 'Back', users_finishHelping_path(foo_param: @queued_user), method: :post %>

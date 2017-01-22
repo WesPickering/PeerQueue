@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(version: 20170121231423) do
     t.string   "Status"
     t.boolean  "PeerHelp"
     t.integer  "dbID"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "beingHelped"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   post'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   post 'users/help'
+  post 'users/finishHelping'
+  get 'queued_users/help_screen' => 'queued_users#help_screen'
+
+
   end
