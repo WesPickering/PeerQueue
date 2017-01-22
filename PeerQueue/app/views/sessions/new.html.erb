@@ -1,26 +1,98 @@
-<div class="login">
-  <div class="container">
-    <div class="form">
-
-      <h1>Login</h1>
-
-      <%= form_for(:session, url: login_path) do |f| %>
-        <%= f.email_field :email, :placeholder => " Email" %>
-        <%= f.password_field :password, :placeholder => " Password" %>
-        <%= f.submit "Login", class: "btn-submit" %>
-        <% end %>
 
 
-        <h2>Sign up</h2>
+          <!DOCTYPE html>
+          <html lang="en">
+            <head>
+              <meta charset="utf-8">
+              <meta http-equiv="X-UA-Compatible" content="IE=edge">
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-        <%= form_for(User.new, url:login_path) do |f|%>
-          <%= f.text_field :first_name, :placeholder => " First name" %>
-          <%= f.text_field :last_name, :placeholder => " Last name" %>
-          <%= f.email_field :email, :placeholder => " Email" %>
-          <%= f.password_field :password, :placeholder => " Password" %>
-          <%= f.text_field :role, :placeholder => " Role" %>
-          <%= f.submit "Create an account", class: "btn-submit" %>
-          <% end %>
-      </div>
-    </div>
-</div>
+              <meta name="description" content="">
+              <meta name="author" content="">
+              <link rel="icon" href="../../favicon.ico">
+
+              <title>Signin Template for Bootstrap</title>
+
+              <!-- Bootstrap core CSS -->
+              <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+              <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+              <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+              <!-- Custom styles for this template -->
+              <link href="signin.css" rel="stylesheet">
+
+              <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+              <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+              <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+              <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+              <!--[if lt IE 9]>
+                <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+                <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+              <![endif]-->
+
+            </head>
+
+            <body>
+
+              <div class="container">
+                  <h2 class="form-signin-heading">Please log in</h2>
+                  <%= form_for(:session, url: login_path) do |f| %>
+                    <%= f.email_field :email, :class => "form-control", :placeholder => " Email" %>
+                    <%= f.password_field :password, :class => "form-control", :placeholder => " Password" %>
+                    <%= f.submit "Login", class: "btn btn-lg btn-primary btn-block" %>
+                    <% end %>
+                  <!--<label for="inputEmail" class="sr-only">Email address</label>
+
+                  <label for="inputPassword" class="sr-only">Password</label>
+                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>-->
+
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                  </div>
+
+                </form>
+
+              </div> <!-- /container -->
+
+              <div class="container">
+                  <h2 class="form-signin-heading">Please Sign Up</h2>
+                  <%= form_for(User.new) do |f|%>
+                    <%= f.text_field :first_name, :class => "form-control", :placeholder => " First name" %>
+                    <%= f.text_field :last_name, :class => "form-control", :placeholder => " Last name" %>
+
+                    <!--<%= f.text_field :role, :class => "form-control", :placeholder => " Role" %>-->
+                    <%= f.email_field :email, :class => "form-control", :placeholder => " Email" %>
+                    <%= f.password_field :password, :class => "form-control", :placeholder => " Password" %>
+                    <%= f.select :role, ['student', 'ta', 'instructor'], :class => "form-control", :placeholder => "Role"%>
+                    <%= f.submit "Create an account", class: "btn btn-lg btn-primary btn-block" %>
+                    <% end %>
+                  <!--
+                  <label for="inputEmail" class="sr-only">Email address</label>
+                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+
+                  <label for="inputPassword" class="sr-only">Password</label>
+                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+                  <label for="inputPassword" class="sr-only">Password</label>
+                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>-->
+
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                  </div>
+                  <!--<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>-->
+                </form>
+
+              </div> <!-- /container -->
+
+
+              <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+              <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+            </body>
+          </html>
