@@ -16,4 +16,7 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to '/'
   end
+  def delete
+    redirect_to '/'
+  end
 end

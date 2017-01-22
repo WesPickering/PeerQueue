@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/' => 'users#new'
   resources :users
   get'/' => 'sessions#new'
+  resources :sessions
   post'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   post 'users/help'
