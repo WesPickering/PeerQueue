@@ -75,7 +75,7 @@ class QueuedUsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def queued_user_params
-      params.require(:queued_user).permit(:Name, :Question, :Status, :PeerHelp, :DbID)
+      params.require(:queued_user).permit(:Name, :Question, :Status, :PeerHelp, :dbID, :beingHelped)
     end
 
 end
