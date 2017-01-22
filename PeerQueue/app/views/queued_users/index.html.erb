@@ -186,7 +186,7 @@
   </thead>
 
   <tbody>
-    <% @queued_users.order("Timed Added").each do |queued_user| %>
+    <% @queued_users.order("created_at").each do |queued_user| %>
       <tr>
         <td><%= queued_user.Name %></td>
         <td><%= (queued_user.created_at - 28800).strftime("%r") %></td>
