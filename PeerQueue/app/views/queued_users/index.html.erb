@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Queued Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Time Added</th>
+      <th>Question</th>
+      <th>Status</th>
+      <th>Peerhelp</th>
+      <th colspan=4></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @queued_users.each do |queued_user| %>
+      <tr>
+        <td><%= queued_user.Name %></td>
+        <td><%= queued_user.created_at %></td>
+        <td><%= queued_user.Question %></td>
+        <td><%= queued_user.Status %></td>
+        <!--<td><%= queued_user.PeerHelp %></td>-->
+        <td><%= link_to 'Help', help_queued_user_url %></td>
+        <td><%= link_to 'Show', queued_user %></td>
+        <td><%= link_to 'Edit', edit_queued_user_path(queued_user) %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+<%= link_to 'New Queued User', new_queued_user_path %>
