@@ -194,7 +194,7 @@
         <td><%= queued_user.Status %></td>
         <td><%= button_to "Help", users_help_path(foo_param: queued_user), method: :post %><td>
         <td><%= link_to 'Show', queued_user %></td>
-        <% if queued_user.dbID == session[:user_id] %>
+        <% if queued_user.dbID == session[:user_id] || current_user.ta? || current_user.instructor?%>
         <td><%= link_to 'DESTROY', queued_user, method: :delete, data: {confirm: "are you sure m8?"}%></td>
         <% end %>
       </tr>
