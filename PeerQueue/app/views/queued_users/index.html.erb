@@ -211,7 +211,7 @@
           <td><%= button_to "Help", users_help_path(foo_param: queued_user), method: :post %></td>
         <% end %>
 
-        <% if queued_user.dbID == session[:user_id] %>
+        <% if queued_user.dbID == session[:user_id] || !current_user.student?%>
         <td><%= link_to 'edit', edit_queued_user_url(queued_user) %></td>
         <td><%= link_to 'Remove', queued_user, method: :delete, data: {confirm: "are you sure m8?"}%></td>
         <% end %>
