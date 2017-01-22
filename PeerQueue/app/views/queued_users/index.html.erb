@@ -26,10 +26,31 @@
 
       </tr>
     <% end %>
+
   </tbody>
 </table>
-
-
 <br>
 
+<% if current_user && current_user.instructor? %>
+<body>
+<h1>I'm an instructor</h1>
+</body>
+<% end %>
+
+<% if current_user && current_user.ta? %>
+<body>
+<h3>I'm a TA</h3>
+</body>
+<% end %>
+
+<% if current_user && current_user.student? %>
+<body>
+<h3>I'm a student</h3>
+</body>
+<% end %>
+
+<%= link_to 'Logout', logout_path, method:'delete' %>
+
+<% if current_user && current_user.student? %>
 <%= link_to 'New Queued User', new_queued_user_path %>
+<% end %>
