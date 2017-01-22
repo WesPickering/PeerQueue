@@ -207,12 +207,15 @@
         <td><%= queued_user.Status %></td>
         <% if ((queued_user.PeerHelp && current_user.student?) || !current_user.student?) && queued_user.dbID != session[:user_id] && !queued_user.beingHelped%>
           <td><%= button_to "Help", users_help_path(foo_param: queued_user), method: :post %></td>
+        <td><%= queued_user.dbID %></td>
+        <% if current_user && ((queued_user.PeerHelp && current_user.student?) || !current_user.student?)%>
+        <td><%= button_to "Help", users_help_path(foo_param: queued_user), method: :post %></td>
         <% end %>
 
         <% if queued_user.dbID == session[:user_id] %>
         <td><%= link_to 'edit', edit_queued_user_url(queued_user) %></td>
         <td><%= link_to 'Remove', queued_user, method: :delete, data: {confirm: "are you sure m8?"}%></td>
-        <%end%>
+        <% end %>
       </tr>
     <% end %>
 
@@ -221,7 +224,14 @@
 <br>
 
 
+<<<<<<< HEAD
 <%= link_to 'Logout', logout_path, method:'delete'%>
+=======
+
+
+<%= link_to 'Logout', logout_path, method: :delete, data: {confirm: "are you sure m8?"}%>
+
+>>>>>>> a6844cb774eb49166bbbcb4f0d4c06766be8c101
 
 
 <% if (QueuedUser.find_by_dbID(session[:user_id]) == @current_user) && current_user.student?%>
