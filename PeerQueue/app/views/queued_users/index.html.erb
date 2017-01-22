@@ -30,7 +30,7 @@
     padding-top: 0.75em;
   }
   .banner {
-    width:120%;
+    width:108%;
     height: 100px;
     margin:7px auto;
     margin-top: 25px;
@@ -86,6 +86,7 @@
   	text-decoration:underline;
   }
   table {
+    table-layout: fixed;
   	font-family:Arial, Helvetica, sans-serif;
   	color:#666;
   	font-size:14px;
@@ -198,17 +199,20 @@
   </thead>
 
   <tbody>
-    <% @queued_users.each do |queued_user| %>
+    <% @queued_users.order("created_at").each do |queued_user| %>
       <tr>
         <td><%= queued_user.Name %></td>
-        <td><%= queued_user.created_at.strftime("%r") %></td>
+        <td><%= (queued_user.created_at - 28800).strftime("%r") %></td>
         <td><%= queued_user.Question %></td>
         <td><%= queued_user.Status %></td>
+        <% if (queued_user.PeerHelp && current_user.student?) || !current_user.student?%>
         <td><%= button_to "Help", users_help_path(foo_param: queued_user), method: :post %></td>
-        <td><%= link_to 'Show', queued_user %></td>
-        <% if queued_user.dbID == session[:user_id] || current_user.ta? || current_user.instructor?%>
-        <td><%= link_to 'DESTROY', queued_user, method: :delete, data: {confirm: "are you sure m8?"}%></td>
         <% end %>
+
+        <% if queued_user.dbID == session[:user_id] %>
+        <td><%= link_to 'edit', edit_queued_user_url(queued_user) %></td>
+        <td><%= link_to 'Remove', queued_user, method: :delete, data: {confirm: "are you sure m8?"}%></td>
+        <%end%>
       </tr>
     <% end %>
 
