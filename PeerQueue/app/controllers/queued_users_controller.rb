@@ -26,6 +26,7 @@ class QueuedUsersController < ApplicationController
   def create
     @queued_user = QueuedUser.new(queued_user_params)
     @queued_user.Name = User.find_by_id(session[:user_id]).first_name
+    @queued_user.Status = "In Queue"
     @queued_user.write_attribute(:dbID, session[:user_id])
 
     respond_to do |format|
