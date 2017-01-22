@@ -5,6 +5,7 @@ class CreateQueuedUsers < ActiveRecord::Migration[5.0]
       t.string :Question
       t.string :Status
       t.boolean :PeerHelp
+      t.integer :dbID
 
       t.timestamps
     end

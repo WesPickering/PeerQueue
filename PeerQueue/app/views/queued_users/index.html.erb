@@ -22,8 +22,7 @@
         <td><%= queued_user.Status %></td>
         <td><%= button_to "Help", users_help_path(foo_param: queued_user), method: :post %><td>
         <td><%= link_to 'Show', queued_user %></td>
-        <td><%= queued_user.DbID %></td>
-        <% if queued_user.DbID == session[:user_id] %>
+        <% if queued_user.dbID == session[:user_id] %>
         <td><%= link_to 'DESTROY', queued_user, method: :delete, data: {confirm: "are you sure m8?"}%></td>
         <% end %>
       </tr>
@@ -53,6 +52,6 @@
 
 <%= link_to 'Logout', logout_path, method:'delete' %>
 
-<% if current_user && current_user.student? %>
+<% if QueuedUser.find_by_dbID(session[:user_id]) == @user %>
 <%= link_to 'Add Self to Queue', new_queued_user_path %>
 <% end %>

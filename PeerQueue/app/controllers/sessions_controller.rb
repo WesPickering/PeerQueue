@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to '/queued_users'
     else
-      redirect_to '/login'
+      redirect_to '/'
     end
   end
   def destroy

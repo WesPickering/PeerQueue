@@ -4,7 +4,7 @@
 
       <h1>Login</h1>
 
-      <%= form_for(:session, url: login_path) do |f| %>
+      <%= form_for(:session) do |f| %>
         <%= f.email_field :email, :placeholder => " Email" %>
         <%= f.password_field :password, :placeholder => " Password" %>
         <%= f.submit "Login", class: "btn-submit" %>
@@ -13,7 +13,7 @@
 
         <h2>Sign up</h2>
 
-        <%= form_for(User.new, url:login_path) do |f|%>
+        <%= form_for(User.new) do |f|%>
           <%= f.text_field :first_name, :placeholder => " First name" %>
           <%= f.text_field :last_name, :placeholder => " Last name" %>
           <%= f.email_field :email, :placeholder => " Email" %>
