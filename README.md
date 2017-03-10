@@ -11,5 +11,5 @@ in order to be helped by a TA. However, we have included the option for queued p
 This allows students to get more help as well as reduce the number of students in the queue.
 
 This web app was built using Ruby on Rails. Front end was done with HTML and Bootstrap. 
-The backend was built with Ruby and deployed to Heroku.
+The backend was built with Ruby and deployed to Heroku. Link here: vast-chamber-26187.herokuapp.com
 
